@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy React App
 
 on:
   push:
@@ -31,14 +31,13 @@ jobs:
         working-directory: ./training
         run: npm run build
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./training/dist
 
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - name: Deploy
         uses: actions/deploy-pages@v4
